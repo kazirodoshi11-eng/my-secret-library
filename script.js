@@ -11,6 +11,7 @@ const bookTitle = document.getElementById("bookTitle");
 const bookAuthor = document.getElementById("bookAuthor");
 const bookCategory = document.getElementById("bookCategory");
 const bookCover = document.getElementById("bookCover");
+const bookRating = document.getElementById("bookRating");
 const bookStatus = document.getElementById("bookStatus");
 
 const searchInput = document.getElementById("searchInput");
@@ -49,6 +50,7 @@ bookForm.addEventListener("submit", function (event) {
     author: bookAuthor.value.trim(),
     category: bookCategory.value.trim() || "Uncategorized",
     cover: bookCover.value.trim(),
+    rating: Number(bookRating.value),
     status: bookStatus.value,
   };
 
@@ -153,10 +155,26 @@ function displayBooks() {
     status.className = "book-status";
     status.textContent = book.status;
     card.appendChild(status);
+    // Star rating
+    const rating = document.createElement("p");
+    rating.className = "book-rating";
+
+    const stars = Number(book.rating) || 0;
+    rating.textContent = "★".repeat(stars) + "☆".repeat(5 - stars);
+
+    card.appendChild(rating);
 
     // Action buttons
     const actions = document.createElement("div");
     actions.className = "book-actions";
+
+    // Edit button
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+
+    editButton.addEventListener("click", function () {
+      editBook(book.id);
+    });
 
     // Delete button
     const deleteButton = document.createElement("button");
@@ -167,7 +185,9 @@ function displayBooks() {
       deleteBook(book.id);
     });
 
+    actions.appendChild(editButton);
     actions.appendChild(deleteButton);
+
     card.appendChild(actions);
 
     bookList.appendChild(card);
@@ -190,6 +210,56 @@ function deleteBook(bookId) {
 
   saveBooks();
   displayBooks();
+}
+
+// Edit an existing book
+function editBook(bookId) {
+  const book = books.find(function (item) {
+    return item.id === bookId;
+  });
+
+  if (!book) return;
+
+  const newTitle = prompt("Enter book title:", book.title);
+
+  if (newTitle === null) return;
+
+  const newAuthor = prompt("Enter author name:", book.author);
+
+  if (newAuthor === null) return;
+
+  const newCategory = prompt("Enter category:", book.category);
+
+  if (newCategory === null) return;
+
+  const newStatus = prompt(
+    "Enter status: Want to Read, Reading, or Finished",
+    book.status,
+  );
+
+  if (newStatus === null) return;
+
+  const validStatuses = ["Want to Read", "Reading", "Finished"];
+
+  if (!validStatuses.includes(newStatus.trim())) {
+    alert("Please enter a valid reading status.");
+    return;
+  }
+
+  if (!newTitle.trim() || !newAuthor.trim()) {
+    alert("Title and author cannot be empty.");
+    return;
+  }
+
+  book.title = newTitle.trim();
+  book.author = newAuthor.trim();
+  book.category = newCategory.trim() || "Uncategorized";
+  book.status = newStatus.trim();
+
+  saveBooks();
+  displayBooks();
+
+  alert("Book updated successfully! 🌷");
 }
 
 // 7. Update dashboard statistics
