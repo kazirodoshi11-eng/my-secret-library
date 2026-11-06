@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Secret Library</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Website Header -->
+    <header class="header">
+        <h1>My Secret Library 📚</h1>
+        <p>A cozy little corner for book lovers.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+            <h2>My Reading Dashboard</h2>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <h3 id="totalBooks">0</h3>
+                    <p>Total Books</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="readingBooks">0</h3>
+                    <p>Currently Reading</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="finishedBooks">0</h3>
+                    <p>Finished Books</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Book -->
+        <section class="add-book">
+            <h2>Add a New Book</h2>
+
+            <form id="bookForm">
+                <input
+                    type="text"
+                    id="bookTitle"
+                    placeholder="Book title"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="bookAuthor"
+                    placeholder="Author name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="bookCategory"
+                    placeholder="Category"
+                >
+
+                <input
+                    type="url"
+                    id="bookCover"
+                    placeholder="Book cover image URL (optional)"
+                >
+
+                <select id="bookStatus">
+                    <option value="Want to Read">Want to Read</option>
+                    <option value="Reading">Reading</option>
+                    <option value="Finished">Finished</option>
+                </select>
+
+                <button type="submit">Add to My Library +</button>
+            </form>
+        </section>
+
+        <!-- Book Collection -->
+        <section class="library">
+            <h2>My Bookshelf ✨</h2>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search books or authors..."
+            >
+
+            <select id="filterStatus">
+                <option value="All">All Books</option>
+                <option value="Want to Read">Want to Read</option>
+                <option value="Reading">Reading</option>
+                <option value="Finished">Finished</option>
+            </select>
+
+            <div id="bookList" class="book-grid">
+                <!-- JavaScript will display books here -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Made with ♡ for book lovers</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

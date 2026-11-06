@@ -1,0 +1,348 @@
+
+/* =================================
+   MY SECRET LIBRARY
+   Pastel Pinterest Aesthetic
+================================= */
+
+/* 1. Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* 2. Global Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #f4cbd2;
+    --light-pink: #fff0f2;
+    --cream: #fffaf5;
+    --white: #ffffff;
+    --sage: #dce8d5;
+    --dark-sage: #73866c;
+    --text: #51464a;
+    --muted: #998c91;
+    --shadow: 0 8px 25px rgba(120, 85, 95, 0.08);
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* 3. Header */
+.header {
+    text-align: center;
+    padding: 55px 20px 45px;
+    background: linear-gradient(
+        135deg,
+        #fce4e8,
+        #fff0e9,
+        #e8eee2
+    );
+}
+
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #795c67;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #907e84;
+    font-size: 15px;
+}
+
+/* 4. Main Container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* 5. Section Headings */
+section {
+    margin-bottom: 45px;
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    margin-bottom: 20px;
+    color: #795c67;
+}
+
+/* 6. Dashboard */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid #f7e9e9;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    font-size: 32px;
+    color: #c78398;
+    font-family: 'Playfair Display', serif;
+}
+
+.stat-card p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* 7. Add Book Form */
+.add-book {
+    background: #fcecef;
+    padding: 30px;
+    border-radius: 22px;
+}
+
+#bookForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #eadde0;
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #d69aaa;
+    box-shadow: 0 0 0 3px rgba(214, 154, 170, 0.15);
+}
+
+/* 8. Buttons */
+button {
+    border: none;
+    padding: 13px 20px;
+    border-radius: 12px;
+    background: #c98d9d;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #b9788b;
+    transform: translateY(-2px);
+}
+
+#bookForm button {
+    grid-column: span 2;
+}
+
+/* 9. Library Search and Filter */
+#searchInput {
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+#filterStatus {
+    max-width: 220px;
+    margin-bottom: 20px;
+    margin-left: 8px;
+}
+
+/* 10. Book Grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 24px;
+}
+
+/* 11. Book Cards */
+.book-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: var(--shadow);
+    border: 1px solid #f4e9e9;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(120, 85, 95, 0.13);
+}
+
+.book-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: var(--light-pink);
+}
+
+.book-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    margin-top: 13px;
+}
+
+.book-card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.book-status {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--dark-sage);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.book-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 13px;
+}
+
+.book-actions button {
+    flex: 1;
+    padding: 9px 5px;
+    font-size: 12px;
+}
+
+.delete-btn {
+    background: #e8b2b2;
+}
+
+.delete-btn:hover {
+    background: #cf8989;
+}
+
+/* 12. Empty Library */
+.empty-message {
+    text-align: center;
+    color: var(--muted);
+    padding: 35px 15px;
+    grid-column: 1 / -1;
+    background: white;
+    border-radius: 18px;
+}
+
+/* 13. Footer */
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* 14. Mobile Responsive Design */
+@media (max-width: 650px) {
+
+    .header {
+        padding: 40px 15px;
+    }
+
+    .header h1 {
+        font-size: 30px;
+    }
+
+    .container {
+        width: 92%;
+        margin: 25px auto;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    #bookForm {
+        grid-template-columns: 1fr;
+    }
+
+    #bookForm button {
+        grid-column: span 1;
+    }
+
+    #filterStatus {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .book-card {
+        padding: 10px;
+    }
+
+    .book-card img {
+        height: 170px;
+    }
+
+    .book-card h3 {
+        font-size: 16px;
+    }
+
+    .book-actions {
+        flex-direction: column;
+    }
+}
+
+/* Book cover placeholder */
+
+.cover-placeholder {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fce4e8, #e8eee2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+}
+
+/* Mobile cover size */
+
+@media (max-width: 650px) {
+    .cover-placeholder {
+        height: 170px;
+    }
+}
